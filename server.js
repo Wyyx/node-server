@@ -4,7 +4,7 @@ const fs = require('fs')
 
 const port = process.env.PORT || 3000
 
-hbs.registerPartials('./views/partials')
+hbs.registerPartials(__dirname + '/views/partials')
 hbs.registerHelper('getCurrentYear', () => {
   return new Date().getFullYear()
 })
@@ -22,14 +22,6 @@ app.use((req, res, next) => {
   next()
 })
 
-// app.use((req, res, next) => {
-//   res.render('maintenance.hbs', {
-//     pageTitle: 'Maintenance Page'
-//   })
-// })
-
-// xxxxxxxxxxxxxxxxxxxxx
-// yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
 app.use(express.static('./public'))
 
 app.get('/', (req, res) => {
@@ -45,6 +37,11 @@ app.get('/about', (req, res) => {
   })
 })
 
+app.get('/projects', (req, res) => {
+  res.render('projects.hbs', {
+    pageTitle: 'Projects Page'
+  })
+})
 app.listen(port, () => {
   console.log(`Server is up on port ${port}`)
 })
