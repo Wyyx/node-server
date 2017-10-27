@@ -19,6 +19,7 @@ app.use((req, res, next) => {
   fs.appendFile('server.log', log + '\n')
   next()
 })
+
 // app.use((req, res, next) => {
 //   res.render('maintenance.hbs', {
 //     pageTitle: 'Maintenance Page'
