@@ -25,6 +25,8 @@ app.use((req, res, next) => {
 //     pageTitle: 'Maintenance Page'
 //   })
 // })
+
+// xxxxxxxxxxxxxxxxxxxxx
 app.use(express.static('./public'))
 
 app.get('/', (req, res) => {
